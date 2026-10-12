@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Bot, Check, Database, Search, Workflow } from "lucide-react";
 import { A, CALC, FAQ, FOOTER_COLS, GROW, PROCESS, USECASES } from "./data";
 
-const SRC = "https://www.brihaspatitech.com";
+const WHATSAPP = `https://wa.me/917010069287?text=${encodeURIComponent("Hi Automation For Business, I would like to discuss a project with you. Could we talk?")}`;
 const img = (p: string) => `${A}/${p}`;
 
 function Arrow({ dir = "next" }: { dir?: "prev" | "next" }) {
@@ -39,7 +39,7 @@ function Header() {
           </a>
         </div>
         <div className="flex items-center gap-3">
-          <a href={SRC + "/contact/"}
+          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-2 bg-[#f7e934] px-6 py-3 text-xs font-extrabold uppercase tracking-wider text-[#151515] transition hover:brightness-95">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
               <path d="M3.68 7.9 5.66 5.93c.2-.2.34-.45.4-.72a1.4 1.4 0 0 0-.02-.84c-.14-.46-.26-.92-.37-1.38-.09-.41-.45-.74-.86-.74H3.68c-.83 0-1.52.68-1.43 1.51.7 6.29 5.7 11.29 11.99 11.99.83.09 1.5-.59 1.5-1.42v-1.13c0-.42-.34-.76-.75-.83-.45-.09-.9-.2-1.33-.34-.58-.18-1.22-.05-1.64.38l-1.94 1.93" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -103,7 +103,7 @@ function Services() {
             <p className="mt-[30px] max-w-[330px] text-[18px] leading-[1.48] text-white/75">
               Structure your content and proof so customers and AI assistants can find, understand and trust your business.
             </p>
-            <a className={link} href={SRC + "/ai/ai-search-optimization/"}>Know more <span className="text-2xl leading-none">›</span></a>
+            <a className={link} href={WHATSAPP} target="_blank" rel="noopener noreferrer">Know more <span className="text-2xl leading-none">›</span></a>
           </article>
           <article className={`${base} border border-black/5 bg-[#f4f4f4] text-[#171717] bg-[radial-gradient(circle_at_88%_96%,rgba(176,94,232,.14),transparent_38%)]`}>
             <p className={eyebrow}>Agentic AI</p>
@@ -111,7 +111,7 @@ function Services() {
             <p className="mt-[30px] max-w-[330px] text-[18px] leading-[1.48] text-[#3f3f3f]">
               Deploy goal-driven agents that understand context, coordinate tasks and use your business tools.
             </p>
-            <a className={link} href={SRC + "/ai/ai-agent-development-company/"}>Explore <span className="text-2xl leading-none">›</span></a>
+            <a className={link} href={WHATSAPP} target="_blank" rel="noopener noreferrer">Explore <span className="text-2xl leading-none">›</span></a>
           </article>
           <article className={`${base} bg-gradient-to-b from-white to-[#b563ee] text-[#171717]`}>
             <p className={eyebrow}>AI Automations</p>
@@ -119,7 +119,7 @@ function Services() {
             <p className="mt-[30px] max-w-[330px] text-[18px] leading-[1.48] text-[#3f3f3f]">
               Replace manual steps with reliable workflows that connect your tools and run in the background.
             </p>
-            <a className={link} href={SRC + "/ai/ai-automation-agency/"}>Know more <span className="text-2xl leading-none">›</span></a>
+            <a className={link} href={WHATSAPP} target="_blank" rel="noopener noreferrer">Know more <span className="text-2xl leading-none">›</span></a>
           </article>
         </div>
       </div>
@@ -427,7 +427,7 @@ function ContactCta() {
               <h2 className="max-w-[702px] text-[clamp(34px,5.6vw,56px)] font-black leading-[1.14] text-white lg:text-[63px] lg:leading-[71px]">Have a project<br />in mind?</h2>
               <div className="flex w-full flex-col items-center gap-6 md:gap-8">
                 <p className="text-base leading-7 text-white/80">Whether you are building something new, improving existing software, or planning your next digital initiative, tell us what you are working on.</p>
-                <a href={SRC + "/contact/"} className="group inline-flex h-14 w-full items-center justify-center gap-1.5 bg-[#f7e934] px-8 text-base font-bold text-[#151515] transition-colors hover:bg-[#ffef5c] focus-visible:bg-[#ffef5c] md:w-auto">
+                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="group inline-flex h-14 w-full items-center justify-center gap-1.5 bg-[#f7e934] px-8 text-base font-bold text-[#151515] transition-colors hover:bg-[#ffef5c] focus-visible:bg-[#ffef5c] md:w-auto">
                   Let&rsquo;s start the discussion
                   <span className="inline-flex transition-transform group-hover:translate-x-[3px]" aria-hidden>
                     <svg width="14" height="11" viewBox="0 0 14.2 10.5629" fill="none"><path d="M13.7203 4.96699L9.25926 0.505948C9.09901 0.318825 8.81738 0.297012 8.63026 0.457299C8.44314 0.617547 8.42132 0.899171 8.58161 1.08629C8.59656 1.10374 8.61282 1.12003 8.63026 1.13494L12.3284 4.83761H0.796089C0.549736 4.83761 0.35 5.03734 0.35 5.28373C0.35 5.53012 0.549736 5.72982 0.796089 5.72982H12.3284L8.63026 9.428C8.44314 9.58825 8.42132 9.86987 8.58161 10.057C8.7419 10.2441 9.02348 10.2659 9.21061 10.1056C9.22805 10.0907 9.24434 10.0744 9.25926 10.057L13.7203 5.59595C13.8932 5.42201 13.8932 5.141 13.7203 4.96699Z" fill="currentColor" stroke="currentColor" strokeWidth="0.7" /></svg>
