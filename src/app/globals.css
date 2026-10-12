@@ -128,3 +128,11 @@
     @apply font-sans;
   }
 }
+/* Brihaspati clone: serif accent font used by `font-serif` on this site */
+@theme inline {
+  --font-serif: var(--font-bt-serif), Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
