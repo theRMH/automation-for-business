@@ -33,19 +33,19 @@ function Header() {
 
   return (
     <header className={`sticky top-0 z-[100] w-full backdrop-blur-[9px] transition ${scrolled ? "bg-[#03000b]/90 shadow-[0_12px_32px_rgba(0,0,0,.35)]" : "bg-[#03000b] shadow-[0_8px_24px_rgba(0,0,0,.22)]"}`}>
-      <div className="mx-auto flex h-[77px] max-w-[1520px] items-center justify-between gap-6 px-5 md:px-10">
-        <div className="flex min-w-0 items-center gap-16">
+      <div className="mx-auto flex h-[68px] max-w-[1520px] items-center justify-between gap-3 px-4 sm:gap-6 sm:px-5 md:h-[77px] md:px-10">
+        <div className="flex min-w-0 items-center">
           <a href="#top" aria-label="Automation For Business home" className="shrink-0">
             <span className="flex items-center gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img("afb-logo-white.png")} alt="" width={268} height={128} className="h-9 w-auto" />
-              <span className="text-[15px] font-extrabold uppercase leading-[1.05] tracking-tight text-white">Automation<br />For Business</span>
+              <img src={img("afb-logo-white.png")} alt="" width={268} height={128} className="h-8 w-auto sm:h-9" />
+              <span className="text-[13px] font-extrabold uppercase leading-[1.05] tracking-tight text-white sm:text-[15px]">Automation<br />For Business</span>
             </span>
           </a>
         </div>
         <div className="flex items-center gap-3">
           <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-[#f7e934] px-6 py-3 text-xs font-extrabold uppercase tracking-wider text-[#151515] transition hover:brightness-95">
+            className="flex min-h-11 items-center gap-2 bg-[#f7e934] px-4 py-3 text-xs sm:px-6 font-extrabold uppercase tracking-wider text-[#151515] transition hover:brightness-95">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
               <path d="M3.68 7.9 5.66 5.93c.2-.2.34-.45.4-.72a1.4 1.4 0 0 0-.02-.84c-.14-.46-.26-.92-.37-1.38-.09-.41-.45-.74-.86-.74H3.68c-.83 0-1.52.68-1.43 1.51.7 6.29 5.7 11.29 11.99 11.99.83.09 1.5-.59 1.5-1.42v-1.13c0-.42-.34-.76-.75-.83-.45-.09-.9-.2-1.33-.34-.58-.18-1.22-.05-1.64.38l-1.94 1.93" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -60,26 +60,26 @@ function Header() {
 /* ------------------------------------------------------------------ hero */
 function Hero() {
   return (
-    <section className="relative flex min-h-[calc(100vh-47px)] items-center" aria-label="Hero Section" id="top">
+    <section className="relative flex min-h-[calc(100svh-68px)] md:min-h-[calc(100svh-47px)] items-center" aria-label="Hero Section" id="top">
       <div className="absolute inset-0 overflow-hidden bg-[#0d0714]" aria-hidden>
-        <video muted loop playsInline autoPlay preload="auto" aria-hidden className="absolute inset-0 h-full w-full object-cover">
+        <video muted loop playsInline autoPlay preload="auto" aria-hidden className="absolute motion-reduce:hidden inset-0 h-full w-full object-cover">
           <source src={img("hero-mobile.mp4")} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/30" />
       </div>
       <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-[#0d0714]" aria-hidden />
-      <div className="relative mx-auto w-full max-w-[1520px] px-5 pb-[150px] pt-16 md:px-10">
+      <div className="relative mx-auto w-full max-w-[1520px] px-5 pb-[120px] pt-12 md:px-10 md:pb-[150px] md:pt-16">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_minmax(300px,435px)] lg:gap-x-[60px]">
-          <h1 className="pr-4 text-[clamp(44px,7.4vw,104px)] font-black uppercase leading-[0.92] tracking-[-0.04em] text-white">
+          <h1 className="pr-4 text-[clamp(34px,10.5vw,104px)] md:text-[clamp(44px,7.4vw,104px)] font-black uppercase leading-[0.92] tracking-[-0.04em] text-white">
             <span className="block">AI Is Your</span>
             <span className="block text-right">Unfair Advantage.</span>
           </h1>
           <div className="flex flex-col items-start">
             <span className="mb-4 h-2 w-[84px] rounded-full bg-[#a100ff]" aria-hidden />
-            <p className="mb-3 font-serif text-[25px] leading-10 text-white/80">
+            <p className="mb-4 font-serif text-xl leading-8 text-white/85 md:text-[25px] md:leading-10">
               We design and build the platforms, websites and AI tools that let growing businesses run with less friction.
             </p>
-            <a href="#services" aria-label="Explore" className="inline-flex size-[31px] items-center justify-center bg-[#a100ff] transition-transform hover:translate-x-[3px]">
+            <a href="#services" aria-label="Explore" className="inline-flex size-11 items-center justify-center bg-[#a100ff] transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white hover:translate-x-[3px]">
               <svg width="10" height="12" viewBox="0 0 10 12" fill="none" aria-hidden><path d="M0 11.52 4.81 5.76 0 0h4.75l4.9 5.76-4.9 5.76H0Z" fill="white" /></svg>
             </a>
           </div>
@@ -91,15 +91,15 @@ function Hero() {
 
 /* -------------------------------------------------------------- services */
 function Services() {
-  const base = "relative flex flex-col items-start overflow-hidden p-[35px] pb-[31px]";
+  const base = "relative flex flex-col items-start overflow-hidden p-6 pb-6 sm:p-[35px] sm:pb-[31px]";
   const eyebrow = "mb-[30px] flex flex-col text-[17px] font-extrabold uppercase leading-5 tracking-[-0.01em]";
-  const heading = "text-[30px] font-extrabold leading-[33px] tracking-[-0.035em] max-w-[290px] md:min-h-[132px]";
+  const heading = "text-[26px] font-extrabold leading-[30px] sm:text-[30px] sm:leading-[33px] tracking-[-0.035em] max-w-[290px] md:min-h-[132px]";
   const link = "group mt-auto flex w-full items-center justify-end gap-2.5 pb-1 pt-10 text-base font-extrabold";
   return (
-    <section id="services" className="-mt-[120px] bg-gradient-to-b from-[#0d0714]/60 to-[#0d0714] pb-[120px]">
+    <section id="services" className="-mt-[80px] bg-gradient-to-b from-[#0d0714]/60 to-[#0d0714] pb-16 md:-mt-[120px] md:pb-[120px]">
       <div className="mx-auto max-w-[1520px] px-5 md:px-10">
         <h2 className="sr-only">What we do</h2>
-        <div className="relative grid gap-6 md:grid-cols-3 lg:gap-[54px]">
+        <div className="relative grid gap-6 md:grid-cols-3 md:gap-4 lg:gap-[54px]">
           <article className={`${base} bg-[#37045c] text-white`}>
             <p className={eyebrow}><Layers className="mb-4 size-9" strokeWidth={1.6} aria-hidden /><span>Business Platforms</span></p>
             <h3 className={`${heading} max-w-[98%]`}>Custom software that runs your daily operations end to end</h3>
@@ -133,8 +133,8 @@ function Services() {
 /* -------------------------------------------------------------- visitors */
 function Visitors() {
   const card =
-    "relative rounded-[22px] border border-[rgba(120,82,186,.5)] bg-[#130c23] px-[42px] pb-[34px] pt-9 text-left shadow-[0_18px_55px_rgba(0,0,0,.24)] bg-[radial-gradient(circle_at_20%_15%,rgba(96,52,164,.25),transparent_32%),linear-gradient(180deg,rgba(19,12,35,.92),rgba(12,8,25,.94))] max-md:px-6";
-  const iconWrap = "flex size-[72px] shrink-0 items-center justify-center rounded-full border border-[rgba(179,119,255,.54)] bg-[rgba(74,35,133,.28)] shadow-[inset_0_0_0_2px_rgba(153,103,255,.12)]";
+    "relative rounded-[22px] border border-[rgba(120,82,186,.5)] bg-[#130c23] px-[42px] pb-[34px] pt-9 text-left shadow-[0_18px_55px_rgba(0,0,0,.24)] bg-[radial-gradient(circle_at_20%_15%,rgba(96,52,164,.25),transparent_32%),linear-gradient(180deg,rgba(19,12,35,.92),rgba(12,8,25,.94))] max-md:px-5 max-md:pt-7";
+  const iconWrap = "flex size-14 shrink-0 sm:size-[72px] items-center justify-center rounded-full border border-[rgba(179,119,255,.54)] bg-[rgba(74,35,133,.28)] shadow-[inset_0_0_0_2px_rgba(153,103,255,.12)]";
   const items = (list: [string, string][]) => (
     <dl className="space-y-5">
       {list.map(([t, d]) => (
@@ -147,7 +147,7 @@ function Visitors() {
   );
   const glow = { filter: "drop-shadow(0 0 6px rgba(180,102,255,.45))" };
   return (
-    <section className="bg-[#060217] bg-[radial-gradient(45%_45%_at_100%_15%,rgba(151,92,231,.18),transparent_70%)] py-[120px]">
+    <section className="bg-[#060217] bg-[radial-gradient(45%_45%_at_100%_15%,rgba(151,92,231,.18),transparent_70%)] py-16 md:py-[120px]">
       <div className="mx-auto flex max-w-[1520px] flex-col items-center px-5 text-center md:px-10">
         <p className="mb-[22px] text-xs font-medium uppercase tracking-[.24em] text-[#cab5ff]">Who it is for</p>
         <h2 className="max-w-[23ch] font-serif text-[clamp(32px,5.5vw,76px)] font-normal leading-[1.03] tracking-[-0.045em] text-white">Every system serves two groups.</h2>
@@ -162,24 +162,24 @@ function Visitors() {
 
         <div className="mt-10 grid w-full max-w-[1080px] gap-10 md:mt-0 md:grid-cols-2 md:gap-[clamp(40px,10vw,127.6px)]">
           <article className={card}>
-            <div className="mb-5 flex items-center gap-[22px]">
+            <div className="mb-5 flex items-center gap-4 sm:gap-[22px]">
               <span className={iconWrap} aria-hidden>
                 <svg width="26" height="34" viewBox="0 0 26 34" fill="none"><rect x="6.7" y="1" width="11.68" height="11.68" rx="5.84" stroke="#9A5CFF" strokeWidth="2" /><path d="M12.54 18.59c6.34 0 11.54 5.14 11.54 11.46 0 1.47-1.19 2.66-2.66 2.66H3.66A2.66 2.66 0 0 1 1 30.05c0-6.32 5.2-11.46 11.54-11.46Z" stroke="#9A5CFF" strokeWidth="2" /></svg>
               </span>
               <h3 className="font-serif text-[clamp(34px,3.4vw,49px)] font-normal tracking-[-0.035em] text-white">Your team</h3>
             </div>
-            <p className="mb-6 text-[18px] leading-[1.65] text-[#e6e8f4]">The people who run the business day to day. They need tools that are quick to learn and hard to get wrong.</p>
+            <p className="mb-6 text-base leading-[1.65] text-[#e6e8f4] sm:text-[18px]">The people who run the business day to day. They need tools that are quick to learn and hard to get wrong.</p>
             <hr className="mb-6 border-white/10" />
             {items([["One place to work", "Bookings, jobs and records without switching tools."], ["Less manual effort", "Routine steps handled for them."], ["Clear oversight", "Managers see what is happening, as it happens."]])}
           </article>
           <article className={card}>
-            <div className="mb-5 flex items-center gap-[22px]">
+            <div className="mb-5 flex items-center gap-4 sm:gap-[22px]">
               <span className={iconWrap} aria-hidden>
                 <svg width="30" height="26" viewBox="0 0 30 26" fill="none"><rect x="1.5" y="1.5" width="27" height="23" rx="7" stroke="#ff7ad9" strokeWidth="2" /><circle cx="10.5" cy="12" r="1.8" fill="#ff7ad9" /><circle cx="19.5" cy="12" r="1.8" fill="#ff7ad9" /></svg>
               </span>
               <h3 className="font-serif text-[clamp(34px,3.4vw,49px)] font-normal tracking-[-0.035em] text-white">Your customers</h3>
             </div>
-            <p className="mb-6 text-[18px] leading-[1.65] text-[#e6e8f4]">The people you serve. They expect fast answers, simple ordering and honest updates.</p>
+            <p className="mb-6 text-base leading-[1.65] text-[#e6e8f4] sm:text-[18px]">The people you serve. They expect fast answers, simple ordering and honest updates.</p>
             <hr className="mb-6 border-white/10" />
             {items([["Easy to start", "Book, order or enquire in a few taps."], ["Always informed", "Status updates without having to call."], ["Consistent service", "The same quality every time they come back."]])}
           </article>
@@ -232,8 +232,8 @@ function UseCases() {
   }, []);
 
   return (
-    <section className="bg-white py-24 text-[#171717]">
-      <div className="mx-auto grid max-w-[1520px] gap-12 px-5 md:px-10 lg:grid-cols-[420px_1fr]">
+    <section className="bg-white py-16 text-[#171717] md:py-24">
+      <div className="mx-auto grid max-w-[1520px] gap-12 px-5 md:px-10 lg:grid-cols-[360px_minmax(0,1fr)] xl:grid-cols-[420px_minmax(0,1fr)]">
         <div>
           <div className="lg:sticky lg:top-[120px]">
             <p className="text-sm font-semibold uppercase tracking-widest text-[#9a60fb]">Our work</p>
@@ -251,18 +251,18 @@ function UseCases() {
             </ul>
           </div>
         </div>
-        <div className="space-y-8">
+        <div className="min-w-0 space-y-6 md:space-y-8">
           {USECASES.map((u, i) => (
             <article key={u.nav} data-i={i} ref={(el) => { refs.current[i] = el; }}
-              className="rounded-[25px] border border-white/[.13] bg-[#130c23] bg-gradient-to-b from-[#130c23]/90 to-[#0c0819]/95 p-6 shadow-[0_24px_60px_rgba(0,0,0,.28)] md:p-8">
+              className="rounded-[25px] border border-white/[.13] bg-[#130c23] bg-gradient-to-b from-[#130c23]/90 to-[#0c0819]/95 p-4 shadow-[0_24px_60px_rgba(0,0,0,.28)] sm:p-6 md:p-8">
               <p className="text-sm font-semibold uppercase tracking-wider text-[#b794ff]">{u.kicker}</p>
               <div className="mt-2 grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
                 <div>
                   <h3 className="text-2xl font-bold text-white md:text-3xl">{u.title}</h3>
                   <p className="mt-2 text-white/70">{u.text}</p>
                 </div>
-                <div className="rounded-[14px] border border-[rgba(179,119,255,.54)] bg-[radial-gradient(circle_at_100%_0%,rgba(143,86,255,.3),transparent_60%)] px-6 py-4 md:min-w-[220px]">
-                  <p className="text-4xl font-black text-white md:text-5xl">{u.stat}</p>
+                <div className="rounded-[14px] border border-[rgba(179,119,255,.54)] bg-[radial-gradient(circle_at_100%_0%,rgba(143,86,255,.3),transparent_60%)] px-5 py-3 sm:px-6 sm:py-4 md:min-w-[220px]">
+                  <p className="text-3xl font-black text-white sm:text-4xl md:text-5xl">{u.stat}</p>
                   <p className="mt-1 text-sm text-[#cab5ff]">{u.statLabel}</p>
                 </div>
               </div>
@@ -272,8 +272,8 @@ function UseCases() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={`${A}/work/${u.poster}`} alt={`${u.title} video thumbnail`} loading="lazy" className="w-full transition group-hover:scale-[1.02]" />
                   <span className="absolute inset-0 flex items-center justify-center bg-black/30 transition group-hover:bg-black/20">
-                    <span className="flex size-20 items-center justify-center rounded-full bg-[#a100ff] text-white shadow-[0_0_0_10px_rgba(161,0,255,.3)]">
-                      <Play className="size-8 translate-x-0.5 fill-current" aria-hidden />
+                    <span className="flex size-14 items-center justify-center rounded-full bg-[#a100ff] sm:size-20 text-white shadow-[0_0_0_10px_rgba(161,0,255,.3)]">
+                      <Play className="size-6 sm:size-8 translate-x-0.5 fill-current" aria-hidden />
                     </span>
                   </span>
                 </button>
@@ -290,7 +290,7 @@ function UseCases() {
       </div>
       {playing && (
         <div role="dialog" aria-modal="true" aria-label="Video" className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4" onClick={() => setPlaying(null)}>
-          <button type="button" aria-label="Close video" onClick={() => setPlaying(null)} className="absolute right-4 top-4 flex size-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20">
+          <button type="button" aria-label="Close video" onClick={() => setPlaying(null)} className="absolute right-4 top-4 flex size-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20">
             <X className="size-6" aria-hidden />
           </button>
           <video src={playing} controls autoPlay playsInline onClick={(e) => e.stopPropagation()} className="max-h-[88vh] w-full max-w-5xl rounded-xl bg-black" />
@@ -304,7 +304,7 @@ function UseCases() {
 const PROCESS_ICONS = [Search, Database, Bot, Workflow];
 function Process() {
   return (
-    <section className="bg-[#020010] py-24">
+    <section className="bg-[#020010] py-16 md:py-24">
       <div className="mx-auto max-w-[1520px] px-5 md:px-10">
         <p className="text-sm font-semibold uppercase tracking-widest text-[#9a60fb]">How we work</p>
         <h2 className="mt-3 text-4xl font-bold text-white md:text-6xl">From first call to live system.</h2>
@@ -312,13 +312,13 @@ function Process() {
           {PROCESS.map((p, k) => {
             const Icon = PROCESS_ICONS[k];
             return (
-              <article key={p.n} className="relative min-h-[280px] overflow-hidden rounded-2xl border border-[#a872d8]/30 bg-[#fefefe] p-7">
+              <article key={p.n} className="relative min-h-0 overflow-hidden rounded-2xl border border-[#a872d8]/30 bg-[#fefefe] p-6 sm:min-h-[260px] md:p-7 lg:min-h-[280px]">
                 <span className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#b96cff]/0 via-[#b96cff]/[.09] to-[#b96cff]/30" aria-hidden />
                 <div className="relative flex items-start justify-between">
                   <span className="flex size-12 items-center justify-center rounded-xl bg-[#eee3fb] text-[#b96cff]" aria-hidden><Icon className="size-6" /></span>
                   <span className="text-6xl font-extrabold leading-none text-[#e6defa]" aria-hidden>{p.n}</span>
                 </div>
-                <h3 className="relative mt-10 text-xl font-semibold text-[#171717]">{p.title}</h3>
+                <h3 className="relative mt-8 text-xl font-semibold text-[#171717] md:mt-10">{p.title}</h3>
                 <p className="relative mt-2 text-[#171717]/70">{p.desc}</p>
               </article>
             );
@@ -332,7 +332,7 @@ function Process() {
 /* ----------------------------------------------------------------- build */
 function Build() {
   return (
-    <section className="relative overflow-hidden bg-[#100a21] py-24">
+    <section className="relative overflow-hidden bg-[#100a21] py-16 md:py-24">
       <div className="absolute inset-0 bg-[radial-gradient(50%_60%_at_85%_10%,rgba(154,96,250,.25),transparent_70%)]" aria-hidden />
       <div className="relative mx-auto max-w-[1520px] px-5 md:px-10">
         <p className="text-sm font-semibold uppercase tracking-widest text-[#cab5ff]">What we build</p>
@@ -340,7 +340,7 @@ function Build() {
         <p className="mt-4 max-w-2xl text-white/70">Three areas where we help businesses get more done with less effort.</p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {BUILD.map((g, k) => (
-            <article key={g.title} className="flex flex-col rounded-[20px] border border-[#a872d8]/30 bg-[#100a21] p-8">
+            <article key={g.title} className="flex flex-col rounded-[20px] border border-[#a872d8]/30 bg-[#100a21] p-6 sm:p-8">
               <span className="mb-5 flex size-12 items-center justify-center rounded-xl bg-[#a000ff]/20 text-[#cab5ff]" aria-hidden>
                 {(() => { const Icon = BUILD_ICONS[k]; return <Icon className="size-6" />; })()}
               </span>
@@ -348,7 +348,7 @@ function Build() {
               <ul className="mt-5 space-y-3 text-white/75">
                 {g.items.map((i) => <li key={i} className="flex gap-3"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#a000ff]" aria-hidden />{i}</li>)}
               </ul>
-              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 font-semibold text-white">Discuss this <span className="text-[#a000ff]"><Arrow /></span></a>
+              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex min-h-11 items-center gap-2 font-semibold text-white">Discuss this <span className="text-[#a000ff]"><Arrow /></span></a>
             </article>
           ))}
         </div>
@@ -361,7 +361,7 @@ function Build() {
 function Faq() {
   const [open, setOpen] = useState(0);
   return (
-    <section className="bg-[#020010] py-24">
+    <section className="bg-[#020010] py-16 md:py-24">
       <div className="mx-auto max-w-[960px] px-5">
         <h2 className="text-4xl font-bold text-[#f7f7f8] md:text-5xl">Frequently asked questions.</h2>
         <div className="mt-10 border-t border-white/[.08]">
@@ -369,7 +369,7 @@ function Faq() {
             <div key={f.q} className="border-b border-white/[.08]">
               <h3>
                 <button type="button" aria-expanded={open === i} aria-controls={`faq-${i}`} onClick={() => setOpen(open === i ? -1 : i)}
-                  className="flex w-full items-center justify-between gap-6 py-5 text-left text-lg font-semibold text-white">
+                  className="flex w-full items-center justify-between gap-6 min-h-12 py-4 text-left text-base font-semibold text-white sm:py-5 sm:text-lg">
                   {f.q}
                   <span className="relative size-4 shrink-0" aria-hidden>
                     <span className="absolute left-0 top-1/2 h-0.5 w-full -translate-y-1/2 bg-[#9b66ff]" />
@@ -415,7 +415,7 @@ function ContactCta() {
 /* ---------------------------------------------------------------- footer */
 function Footer() {
   return (
-    <footer className="bg-[#040507] pt-16">
+    <footer className="bg-[#040507] pt-12 md:pt-16">
       <div className="mx-auto max-w-[1520px] px-5 md:px-10">
         <div className="grid gap-10 lg:grid-cols-[1fr_2fr]">
           <div>
@@ -427,17 +427,17 @@ function Footer() {
             <p className="mt-4 max-w-sm text-white/65">Software, web and AI solutions built around how your business works.</p>
             <ul className="mt-5 flex gap-3">
               {[["social-linkedin", "LinkedIn"], ["social-instagram", "Instagram"], ["social-facebook", "Facebook"]].map(([f, l]) => (
-                <li key={l}><a aria-label={l} href="#top" className="flex size-10 items-center justify-center rounded-full border border-white/20 hover:border-[#a100ff]">
+                <li key={l}><a aria-label={l} href="#top" className="flex size-11 items-center justify-center rounded-full border border-white/20 hover:border-[#a100ff]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={img(`icons/footer/${f}.svg`)} alt="" className="h-4" /></a></li>
               ))}
             </ul>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-3">
             {FOOTER_COLS.map((c) => (
               <div key={c.title}>
                 <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">{c.title}</h2>
-                <ul className="space-y-2 text-sm text-white/65">{c.links.map((l) => <li key={l}><a href="#contact" className="hover:text-white">{l}</a></li>)}</ul>
+                <ul className="space-y-1 text-sm text-white/65">{c.links.map((l) => <li key={l}><a href="#contact" className="inline-block py-1.5 hover:text-white">{l}</a></li>)}</ul>
               </div>
             ))}
           </div>

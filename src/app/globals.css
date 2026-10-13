@@ -135,6 +135,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .afb-orb { animation: none; }
 }
 
 @keyframes afb-drift {
