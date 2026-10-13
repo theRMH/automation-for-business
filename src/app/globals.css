@@ -128,11 +128,22 @@
     @apply font-sans;
   }
 }
-/* Brihaspati clone: serif accent font used by `font-serif` on this site */
+/* AFB: serif accent font used by `font-serif` on this site */
 @theme inline {
   --font-serif: var(--font-bt-serif), Georgia, "Times New Roman", serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes afb-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-4%, 6%, 0) scale(1.12); }
+}
+.afb-orb { animation: afb-drift 14s ease-in-out infinite; }
+.afb-orb-b { animation-duration: 18s; animation-direction: reverse; }
+.afb-orb-c { animation-duration: 22s; }
+@media (prefers-reduced-motion: reduce) {
+  .afb-orb { animation: none; }
 }

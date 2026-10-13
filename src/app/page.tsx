@@ -1,5 +1,5 @@
-import { Home as BrihaspatiHome } from "@/components/sites/brihaspati/home";
+import { Home as AfbHome } from "@/components/sites/afb/home";
 
 export default function Home() {
-  return <BrihaspatiHome />;
+  return <AfbHome />;
 }

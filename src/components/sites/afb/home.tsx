@@ -1,8 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Bot, Check, Database, Search, Workflow } from "lucide-react";
-import { A, CALC, FAQ, FOOTER_COLS, GROW, PROCESS, USECASES } from "./data";
+import {
+  Bot, Building2, Check, Database, Globe, GraduationCap, LayoutDashboard, Layers, Search, Sparkles, Truck, UtensilsCrossed, Workflow, Wrench,
+} from "lucide-react";
+
+const USECASE_ICONS = [Wrench, Building2, Truck, UtensilsCrossed, GraduationCap];
+const BUILD_ICONS = [LayoutDashboard, Globe, Sparkles];
+import { A, BUILD, FAQ, FOOTER_COLS, PROCESS, USECASES } from "./data";
 
 const WHATSAPP = `https://wa.me/917010069287?text=${encodeURIComponent("Hi Automation For Business, I would like to discuss a project with you. Could we talk?")}`;
 const img = (p: string) => `${A}/${p}`;
@@ -56,25 +61,23 @@ function Header() {
 function Hero() {
   return (
     <section className="relative flex min-h-[calc(100vh-47px)] items-center" aria-label="Hero Section" id="top">
-      <video muted loop playsInline autoPlay preload="metadata" poster={img("images/home_page_hero_poster.jpg")}
-        className="absolute inset-0 -z-0 h-full w-full object-cover opacity-70" aria-hidden>
-        <source src={img("images/home_page_hero.webm")} type="video/webm" />
-      </video>
+      <div className="absolute inset-0 overflow-hidden bg-[#0d0714]" aria-hidden>
+        <video muted loop playsInline autoPlay preload="auto" aria-hidden className="absolute inset-0 h-full w-full object-cover">
+          <source src={img("hero-mobile.mp4")} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
       <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-[#0d0714]" aria-hidden />
       <div className="relative mx-auto w-full max-w-[1520px] px-5 pb-[150px] pt-16 md:px-10">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_minmax(300px,435px)] lg:gap-x-[60px]">
-          <h1 className="pr-4 text-[clamp(52px,9vw,120px)] font-black uppercase leading-[0.9] tracking-[-0.04em] text-white">
-            <span className="block">The AI Shift</span>
-            <span className="block text-right">
-              Is
-              {" "}
-              Here.
-            </span>
+          <h1 className="pr-4 text-[clamp(44px,7.4vw,104px)] font-black uppercase leading-[0.92] tracking-[-0.04em] text-white">
+            <span className="block">AI Is Your</span>
+            <span className="block text-right">Unfair Advantage.</span>
           </h1>
           <div className="flex flex-col items-start">
             <span className="mb-4 h-2 w-[84px] rounded-full bg-[#a100ff]" aria-hidden />
             <p className="mb-3 font-serif text-[25px] leading-10 text-white/80">
-              Turn AI into real business impact: smarter experiences, automated workflows, and new ways to grow.
+              We design and build the platforms, websites and AI tools that let growing businesses run with less friction.
             </p>
             <a href="#services" aria-label="Explore" className="inline-flex size-[31px] items-center justify-center bg-[#a100ff] transition-transform hover:translate-x-[3px]">
               <svg width="10" height="12" viewBox="0 0 10 12" fill="none" aria-hidden><path d="M0 11.52 4.81 5.76 0 0h4.75l4.9 5.76-4.9 5.76H0Z" fill="white" /></svg>
@@ -89,7 +92,7 @@ function Hero() {
 /* -------------------------------------------------------------- services */
 function Services() {
   const base = "relative flex flex-col items-start overflow-hidden p-[35px] pb-[31px]";
-  const eyebrow = "mb-[30px] text-[17px] font-extrabold uppercase leading-5 tracking-[-0.01em]";
+  const eyebrow = "mb-[30px] flex flex-col text-[17px] font-extrabold uppercase leading-5 tracking-[-0.01em]";
   const heading = "text-[30px] font-extrabold leading-[33px] tracking-[-0.035em] max-w-[290px] md:min-h-[132px]";
   const link = "group mt-auto flex w-full items-center justify-end gap-2.5 pb-1 pt-10 text-base font-extrabold";
   return (
@@ -98,28 +101,28 @@ function Services() {
         <h2 className="sr-only">What we do</h2>
         <div className="relative grid gap-6 md:grid-cols-3 lg:gap-[54px]">
           <article className={`${base} bg-[#37045c] text-white`}>
-            <p className={eyebrow}>Intelligent Web</p>
-            <h3 className={`${heading} max-w-[98%]`}>Turn your website into an AI-ready platform that gets recommended</h3>
+            <p className={eyebrow}><Layers className="mb-4 size-9" strokeWidth={1.6} aria-hidden /><span>Business Platforms</span></p>
+            <h3 className={`${heading} max-w-[98%]`}>Custom software that runs your daily operations end to end</h3>
             <p className="mt-[30px] max-w-[330px] text-[18px] leading-[1.48] text-white/75">
-              Structure your content and proof so customers and AI assistants can find, understand and trust your business.
+              Jobs, people, orders and payments in one system your whole team can use from the office or from a phone.
             </p>
-            <a className={link} href={WHATSAPP} target="_blank" rel="noopener noreferrer">Know more <span className="text-2xl leading-none">›</span></a>
+            <a className={link} href={WHATSAPP} target="_blank" rel="noopener noreferrer">Talk to us <span className="text-2xl leading-none">›</span></a>
           </article>
           <article className={`${base} border border-black/5 bg-[#f4f4f4] text-[#171717] bg-[radial-gradient(circle_at_88%_96%,rgba(176,94,232,.14),transparent_38%)]`}>
-            <p className={eyebrow}>Agentic AI</p>
-            <h3 className={heading}>AI agents that think, plan, and take action across your business</h3>
+            <p className={eyebrow}><Bot className="mb-4 size-9" strokeWidth={1.6} aria-hidden /><span>AI Assistants</span></p>
+            <h3 className={heading}>Assistants that handle the routine so your people do not have to</h3>
             <p className="mt-[30px] max-w-[330px] text-[18px] leading-[1.48] text-[#3f3f3f]">
-              Deploy goal-driven agents that understand context, coordinate tasks and use your business tools.
+              Add AI to dispatch, support and scheduling so repeat requests are handled quickly and consistently.
             </p>
-            <a className={link} href={WHATSAPP} target="_blank" rel="noopener noreferrer">Explore <span className="text-2xl leading-none">›</span></a>
+            <a className={link} href={WHATSAPP} target="_blank" rel="noopener noreferrer">Talk to us <span className="text-2xl leading-none">›</span></a>
           </article>
           <article className={`${base} bg-gradient-to-b from-white to-[#b563ee] text-[#171717]`}>
-            <p className={eyebrow}>AI Automations</p>
-            <h3 className={heading}>Automate repetitive work with intelligent workflows and integrations</h3>
+            <p className={eyebrow}><Workflow className="mb-4 size-9" strokeWidth={1.6} aria-hidden /><span>Automation</span></p>
+            <h3 className={heading}>Connect your tools and let the busywork run itself</h3>
             <p className="mt-[30px] max-w-[330px] text-[18px] leading-[1.48] text-[#3f3f3f]">
-              Replace manual steps with reliable workflows that connect your tools and run in the background.
+              Hand-offs, reminders and updates move between your systems automatically, with fewer errors and no copy-pasting.
             </p>
-            <a className={link} href={WHATSAPP} target="_blank" rel="noopener noreferrer">Know more <span className="text-2xl leading-none">›</span></a>
+            <a className={link} href={WHATSAPP} target="_blank" rel="noopener noreferrer">Talk to us <span className="text-2xl leading-none">›</span></a>
           </article>
         </div>
       </div>
@@ -146,8 +149,8 @@ function Visitors() {
   return (
     <section className="bg-[#060217] bg-[radial-gradient(45%_45%_at_100%_15%,rgba(151,92,231,.18),transparent_70%)] py-[120px]">
       <div className="mx-auto flex max-w-[1520px] flex-col items-center px-5 text-center md:px-10">
-        <p className="mb-[22px] text-xs font-medium uppercase tracking-[.24em] text-[#cab5ff]">The new web reality</p>
-        <h2 className="max-w-[23ch] font-serif text-[clamp(32px,5.5vw,76px)] font-normal leading-[1.03] tracking-[-0.045em] text-white">The web has two visitors now.</h2>
+        <p className="mb-[22px] text-xs font-medium uppercase tracking-[.24em] text-[#cab5ff]">Who it is for</p>
+        <h2 className="max-w-[23ch] font-serif text-[clamp(32px,5.5vw,76px)] font-normal leading-[1.03] tracking-[-0.045em] text-white">Every system serves two groups.</h2>
 
         <svg viewBox="0 0 1080 122" preserveAspectRatio="none" className="mt-10 hidden h-auto w-full max-w-[1080px] overflow-visible md:block" style={glow} aria-hidden>
           <defs>
@@ -163,22 +166,22 @@ function Visitors() {
               <span className={iconWrap} aria-hidden>
                 <svg width="26" height="34" viewBox="0 0 26 34" fill="none"><rect x="6.7" y="1" width="11.68" height="11.68" rx="5.84" stroke="#9A5CFF" strokeWidth="2" /><path d="M12.54 18.59c6.34 0 11.54 5.14 11.54 11.46 0 1.47-1.19 2.66-2.66 2.66H3.66A2.66 2.66 0 0 1 1 30.05c0-6.32 5.2-11.46 11.54-11.46Z" stroke="#9A5CFF" strokeWidth="2" /></svg>
               </span>
-              <h3 className="font-serif text-[clamp(34px,3.4vw,49px)] font-normal tracking-[-0.035em] text-white">Humans</h3>
+              <h3 className="font-serif text-[clamp(34px,3.4vw,49px)] font-normal tracking-[-0.035em] text-white">Your team</h3>
             </div>
-            <p className="mb-6 text-[18px] leading-[1.65] text-[#e6e8f4]">People deciding whether to buy from you. They need clarity and proof before they act.</p>
+            <p className="mb-6 text-[18px] leading-[1.65] text-[#e6e8f4]">The people who run the business day to day. They need tools that are quick to learn and hard to get wrong.</p>
             <hr className="mb-6 border-white/10" />
-            {items([["Clear information", "Plain answers on what you sell and what it costs."], ["Well-organized pages", "Answers where visitors expect them."], ["Proof they can trust", "Reviews, case studies and real results."]])}
+            {items([["One place to work", "Bookings, jobs and records without switching tools."], ["Less manual effort", "Routine steps handled for them."], ["Clear oversight", "Managers see what is happening, as it happens."]])}
           </article>
           <article className={card}>
             <div className="mb-5 flex items-center gap-[22px]">
               <span className={iconWrap} aria-hidden>
                 <svg width="30" height="26" viewBox="0 0 30 26" fill="none"><rect x="1.5" y="1.5" width="27" height="23" rx="7" stroke="#ff7ad9" strokeWidth="2" /><circle cx="10.5" cy="12" r="1.8" fill="#ff7ad9" /><circle cx="19.5" cy="12" r="1.8" fill="#ff7ad9" /></svg>
               </span>
-              <h3 className="font-serif text-[clamp(34px,3.4vw,49px)] font-normal tracking-[-0.035em] text-white">AI Agents</h3>
+              <h3 className="font-serif text-[clamp(34px,3.4vw,49px)] font-normal tracking-[-0.035em] text-white">Your customers</h3>
             </div>
-            <p className="mb-6 text-[18px] leading-[1.65] text-[#e6e8f4]">AI systems read your site for structure, credibility and context before recommending you.</p>
+            <p className="mb-6 text-[18px] leading-[1.65] text-[#e6e8f4]">The people you serve. They expect fast answers, simple ordering and honest updates.</p>
             <hr className="mb-6 border-white/10" />
-            {items([["Understand your business", "Agents can tell what you sell and who it's for."], ["Comparable details", "Attributes agents can actually compare."], ["Reasons to recommend you", "Reviews, policies and answers AI can cite."]])}
+            {items([["Easy to start", "Book, order or enquire in a few taps."], ["Always informed", "Status updates without having to call."], ["Consistent service", "The same quality every time they come back."]])}
           </article>
         </div>
 
@@ -196,7 +199,7 @@ function Visitors() {
           <circle cx="540" cy="152" r="6" fill="#c98cff" />
         </svg>
 
-        <p className="mt-12 text-3xl font-semibold text-white md:mt-0 md:text-5xl">We make it work for <em className="font-serif text-[#d4a4ff]">both.</em></p>
+        <p className="mt-12 text-3xl font-semibold text-white md:mt-0 md:text-5xl">We build for <em className="font-serif text-[#d4a4ff]">both.</em></p>
       </div>
     </section>
   );
@@ -225,8 +228,8 @@ function UseCases() {
       <div className="mx-auto grid max-w-[1520px] gap-12 px-5 md:px-10 lg:grid-cols-[420px_1fr]">
         <div>
           <div className="lg:sticky lg:top-[120px]">
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#9a60fb]">Our AI case studies</p>
-            <h2 className="mt-3 text-4xl font-bold text-[#171717] md:text-5xl">Where AI Creates <em className="font-serif text-[#9a60fa]">Bigger Gains</em></h2>
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#9a60fb]">Platforms we have built</p>
+            <h2 className="mt-3 text-4xl font-bold text-[#171717] md:text-5xl">Software for <em className="font-serif text-[#9a60fa]">real operations</em></h2>
             <ul className="mt-8 hidden lg:block">
               {USECASES.map((u, i) => (
                 <li key={u.nav} className="border-b border-[#1717171a]">
@@ -244,16 +247,18 @@ function UseCases() {
           {USECASES.map((u, i) => (
             <article key={u.nav} data-i={i} ref={(el) => { refs.current[i] = el; }}
               className="rounded-[25px] border border-white/[.13] bg-[#130c23] bg-gradient-to-b from-[#130c23]/90 to-[#0c0819]/95 p-6 shadow-[0_24px_60px_rgba(0,0,0,.28)] md:p-8">
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#b794ff]">{u.nav}</p>
+              <div className="flex items-center gap-4">
+                <span className="flex size-12 items-center justify-center rounded-full border border-[rgba(179,119,255,.54)] bg-[rgba(74,35,133,.28)] text-[#b794ff]" aria-hidden>
+                  {(() => { const Icon = USECASE_ICONS[i]; return <Icon className="size-6" />; })()}
+                </span>
+                <p className="text-sm font-semibold uppercase tracking-wider text-[#b794ff]">{u.kicker}</p>
+              </div>
               <h3 className="mt-2 text-2xl font-bold text-white md:text-3xl">{u.title}</h3>
-              {u.text && <p className="mt-3 text-white/70">{u.text}</p>}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img(`images/home-usecase-${i + 1}-872.webp`)} alt={u.title} loading="lazy" className="mt-6 w-full rounded-[15px] border border-white/20 shadow-[0_26px_70px_rgba(0,0,0,.34)]" />
+              <p className="mt-3 text-white/70">{u.text}</p>
               <div className="mt-6 grid gap-6 md:grid-cols-[220px_1fr]">
                 <div className="rounded-[14px] border border-white/20 bg-[radial-gradient(circle_at_100%_0%,rgba(143,86,255,.22),transparent_60%)] p-4">
-                  <p className="text-xs uppercase tracking-widest text-[#b794ff]">Impact</p>
-                  <p className="text-5xl font-extrabold text-[#b96cff]">{u.impact}</p>
-                  <p className="text-sm text-white">{u.caption}</p>
+                  <p className="text-xs uppercase tracking-widest text-[#b794ff]">Built for</p>
+                  <p className="mt-2 text-base font-semibold text-white">{u.audience}</p>
                 </div>
                 <ul className="grid content-center gap-3 sm:grid-cols-2">
                   {u.points.map((p) => (
@@ -277,8 +282,8 @@ function Process() {
   return (
     <section className="bg-[#020010] py-24">
       <div className="mx-auto max-w-[1520px] px-5 md:px-10">
-        <p className="text-sm font-semibold uppercase tracking-widest text-[#9a60fb]">The Process</p>
-        <h2 className="mt-3 text-4xl font-bold text-white md:text-6xl">No Rebuild. Just Upgrade.</h2>
+        <p className="text-sm font-semibold uppercase tracking-widest text-[#9a60fb]">How we work</p>
+        <h2 className="mt-3 text-4xl font-bold text-white md:text-6xl">From first call to live system.</h2>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PROCESS.map((p, k) => {
             const Icon = PROCESS_ICONS[k];
@@ -300,85 +305,26 @@ function Process() {
   );
 }
 
-/* ------------------------------------------------------------------ calc */
-function Calc() {
-  const [tab, setTab] = useState(0);
-  const [rate, setRate] = useState(50);
-  const rows = CALC[tab].rows;
-  return (
-    <section className="bg-[#020010] pb-24 pt-8">
-      <div className="mx-auto max-w-[1520px] px-5 md:px-10">
-        <div className="grid gap-10 lg:grid-cols-[1fr_420px] lg:items-end">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#cab5ff]">The impact should be visible</p>
-            <h2 className="mt-3 text-4xl font-bold text-white md:text-5xl">See the impact AI can have on <em className="font-serif text-[#b96cff]">your business.</em></h2>
-            <p className="mt-4 max-w-xl text-white/70">From less manual work to faster decisions, these are the areas where AI can make a practical difference.</p>
-          </div>
-          <div className="rounded-xl border border-[#7852ba]/30 bg-[#100a21] p-5 shadow-[0_18px_55px_rgba(0,0,0,.24)]">
-            <div className="flex items-center justify-between">
-              <label htmlFor="rate" className="text-sm text-white/75">Adjust the illustrative hourly value</label>
-              <output htmlFor="rate" className="text-xl font-bold text-[#b96cff]">~${rate}/hr</output>
-            </div>
-            <input id="rate" type="range" min={10} max={150} step={5} value={rate} onChange={(e) => setRate(Number(e.target.value))} className="mt-3 w-full accent-[#9a60fa]" />
-          </div>
-        </div>
-        <div role="tablist" aria-label="Business area" className="mt-10 flex flex-wrap gap-2">
-          {CALC.map((c, i) => (
-            <button key={c.tab} role="tab" type="button" aria-selected={tab === i} onClick={() => setTab(i)}
-              className={`rounded-full px-6 py-2 text-sm font-semibold transition ${tab === i ? "bg-[#9a60fa] text-white" : "border border-[#7852ba]/50 text-[#cab5ff] hover:text-white"}`}>
-              {c.tab}
-            </button>
-          ))}
-        </div>
-        <div role="tabpanel" className="mt-6 divide-y divide-white/10 rounded-xl border border-[#7852ba]/30 bg-[#100a21] shadow-[0_18px_55px_rgba(0,0,0,.24)]">
-          {rows.map((r) => (
-            <div key={r.title} className="grid gap-5 p-6 lg:grid-cols-[1.4fr_1fr_160px] lg:items-center">
-              <div className="flex gap-4">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={img(`images/ai-in-business/icons/${r.icon}.svg`)} alt="" className="size-8 shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-white">{r.title}</h3>
-                  <p className="mt-1 text-sm text-[#aab1c0]"><span className="text-white/40">Today · </span>{r.today}</p>
-                  <p className="text-sm text-[#dfe1e6]"><span className="text-[#b96cff]">With AI · </span>{r.ai}</p>
-                </div>
-              </div>
-              <div className="space-y-2 text-xs text-[#aab1c0]">
-                <div className="flex items-center gap-3"><span className="w-16">Manual</span><span className="h-2 flex-1 rounded-full bg-white/20" /><span className="w-8 text-right">{r.manual}h</span></div>
-                <div className="flex items-center gap-3"><span className="w-16">Recovered</span>
-                  <span className="h-2 flex-1 rounded-full bg-white/10"><span className="block h-full rounded-full bg-[#9a60fa]" style={{ width: `${(r.rec / r.manual) * 100}%` }} /></span>
-                  <span className="w-8 text-right text-[#cab5ff]">{r.rec}h</span></div>
-              </div>
-              <div className="lg:text-right">
-                <p className="text-2xl font-bold text-white">~${r.rec * rate}</p>
-                <p className="text-xs uppercase tracking-wider text-white/50">Capacity / Week</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ grow */
-function Grow() {
+/* ----------------------------------------------------------------- build */
+function Build() {
   return (
     <section className="relative overflow-hidden bg-[#100a21] py-24">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={img("images/home-grow-bg.webp")} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#100a21]/60 to-[#100a21]/75" />
+      <div className="absolute inset-0 bg-[radial-gradient(50%_60%_at_85%_10%,rgba(154,96,250,.25),transparent_70%)]" aria-hidden />
       <div className="relative mx-auto max-w-[1520px] px-5 md:px-10">
-        <p className="text-sm font-semibold uppercase tracking-widest text-[#cab5ff]">We are building digital experiences</p>
-        <h2 className="mt-3 text-4xl font-bold text-white md:text-6xl">That will grow your business</h2>
-        <p className="mt-4 max-w-2xl text-white/70">We help businesses build, improve and modernise the digital systems behind their growth.</p>
+        <p className="text-sm font-semibold uppercase tracking-widest text-[#cab5ff]">What we build</p>
+        <h2 className="mt-3 text-4xl font-bold text-white md:text-6xl">Tools that fit how you work</h2>
+        <p className="mt-4 max-w-2xl text-white/70">Three areas where we help businesses get more done with less effort.</p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {GROW.map((g) => (
+          {BUILD.map((g, k) => (
             <article key={g.title} className="flex flex-col rounded-[20px] border border-[#a872d8]/30 bg-[#100a21] p-8">
+              <span className="mb-5 flex size-12 items-center justify-center rounded-xl bg-[#a000ff]/20 text-[#cab5ff]" aria-hidden>
+                {(() => { const Icon = BUILD_ICONS[k]; return <Icon className="size-6" />; })()}
+              </span>
               <h3 className="text-2xl font-semibold text-white">{g.title}</h3>
               <ul className="mt-5 space-y-3 text-white/75">
                 {g.items.map((i) => <li key={i} className="flex gap-3"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#a000ff]" aria-hidden />{i}</li>)}
               </ul>
-              <a href="#contact" className="mt-8 inline-flex items-center gap-2 font-semibold text-white">Learn more <span className="text-[#a000ff]"><Arrow /></span></a>
+              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 font-semibold text-white">Discuss this <span className="text-[#a000ff]"><Arrow /></span></a>
             </article>
           ))}
         </div>
@@ -420,15 +366,15 @@ function ContactCta() {
   return (
     <section id="contact" className="bg-white py-16 md:py-24 lg:pb-[120px] lg:pt-[119px]">
       <div className="mx-auto max-w-[1520px] px-5 md:px-10">
-        <div className="mx-auto flex min-h-0 max-w-[1265px] items-center justify-center overflow-hidden rounded-[10px] bg-[#17032c] bg-[url('/sites/brihaspati/images/home-cta-plane.webp')] bg-cover bg-[position:0%_50%] md:min-h-[511px] md:bg-center">
+        <div className="mx-auto flex min-h-0 max-w-[1265px] items-center justify-center overflow-hidden rounded-[10px] bg-[#17032c] md:min-h-[511px] bg-[radial-gradient(60%_90%_at_85%_30%,rgba(161,0,255,.5),transparent_70%),linear-gradient(110deg,#07000f_10%,#17032c_55%,#3a0a6b_100%)]">
           <div className="flex w-full max-w-[827px] flex-col items-center gap-4 px-5 py-14 text-center md:gap-5 md:p-0">
             <p className="text-xs font-bold uppercase leading-[1.19] tracking-[2.86px] text-[#cab5ff]">Start a conversation</p>
             <div className="flex w-full flex-col items-center gap-[18px] md:gap-[25px]">
               <h2 className="max-w-[702px] text-[clamp(34px,5.6vw,56px)] font-black leading-[1.14] text-white lg:text-[63px] lg:leading-[71px]">Have a project<br />in mind?</h2>
               <div className="flex w-full flex-col items-center gap-6 md:gap-8">
-                <p className="text-base leading-7 text-white/80">Whether you are building something new, improving existing software, or planning your next digital initiative, tell us what you are working on.</p>
+                <p className="text-base leading-7 text-white/80">Tell us about the work you want to simplify. We will reply on WhatsApp and take it from there.</p>
                 <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="group inline-flex h-14 w-full items-center justify-center gap-1.5 bg-[#f7e934] px-8 text-base font-bold text-[#151515] transition-colors hover:bg-[#ffef5c] focus-visible:bg-[#ffef5c] md:w-auto">
-                  Let&rsquo;s start the discussion
+                  Chat with us on WhatsApp
                   <span className="inline-flex transition-transform group-hover:translate-x-[3px]" aria-hidden>
                     <svg width="14" height="11" viewBox="0 0 14.2 10.5629" fill="none"><path d="M13.7203 4.96699L9.25926 0.505948C9.09901 0.318825 8.81738 0.297012 8.63026 0.457299C8.44314 0.617547 8.42132 0.899171 8.58161 1.08629C8.59656 1.10374 8.61282 1.12003 8.63026 1.13494L12.3284 4.83761H0.796089C0.549736 4.83761 0.35 5.03734 0.35 5.28373C0.35 5.53012 0.549736 5.72982 0.796089 5.72982H12.3284L8.63026 9.428C8.44314 9.58825 8.42132 9.86987 8.58161 10.057C8.7419 10.2441 9.02348 10.2659 9.21061 10.1056C9.22805 10.0907 9.24434 10.0744 9.25926 10.057L13.7203 5.59595C13.8932 5.42201 13.8932 5.141 13.7203 4.96699Z" fill="currentColor" stroke="currentColor" strokeWidth="0.7" /></svg>
                   </span>
@@ -444,8 +390,6 @@ function ContactCta() {
 
 /* ---------------------------------------------------------------- footer */
 function Footer() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("");
   return (
     <footer className="bg-[#040507] pt-16">
       <div className="mx-auto max-w-[1520px] px-5 md:px-10">
@@ -466,7 +410,7 @@ function Footer() {
             </ul>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {FOOTER_COLS.slice(1, 4).map((c) => (
+            {FOOTER_COLS.map((c) => (
               <div key={c.title}>
                 <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">{c.title}</h2>
                 <ul className="space-y-2 text-sm text-white/65">{c.links.map((l) => <li key={l}><a href="#contact" className="hover:text-white">{l}</a></li>)}</ul>
@@ -474,16 +418,7 @@ function Footer() {
             ))}
           </div>
         </div>
-        <form className="mt-14 flex flex-col gap-4 border-t border-white/10 py-8 md:flex-row md:items-center md:justify-between"
-          onSubmit={(e) => { e.preventDefault(); setStatus(email ? "Thanks for subscribing." : "Please enter your email."); }}>
-          <h2 className="text-xl font-semibold text-white">Stay informed. Get practical technology insights.</h2>
-          <div className="flex md:w-[420px]">
-            <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Your email address" aria-label="Email address"
-              className="min-w-0 flex-1 border border-white/20 bg-transparent px-4 py-3 text-white placeholder:text-white/40" />
-            <button type="submit" aria-label="Subscribe" className="bg-[#a100ff] px-5 text-white"><Arrow /></button>
-          </div>
-          <p role="status" aria-live="polite" className="text-sm text-[#d4a4ff]">{status}</p>
-        </form>
+        <p className="mt-14 border-t border-white/10 py-8 text-sm text-white/50">&copy; {new Date().getFullYear()} Automation For Business. All rights reserved.</p>
       </div>
     </footer>
   );
@@ -499,8 +434,7 @@ export function Home() {
         <Visitors />
         <UseCases />
         <Process />
-        <Calc />
-        <Grow />
+        <Build />
         <Faq />
         <ContactCta />
       </main>
