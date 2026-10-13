@@ -62,7 +62,7 @@ function Hero() {
   return (
     <section className="relative flex min-h-[calc(100svh-68px)] md:min-h-[calc(100svh-47px)] items-center" aria-label="Hero Section" id="top">
       <div className="absolute inset-0 overflow-hidden bg-[#0d0714]" aria-hidden>
-        <video muted loop playsInline autoPlay preload="auto" aria-hidden className="absolute motion-reduce:hidden inset-0 h-full w-full object-cover">
+        <video muted loop playsInline autoPlay preload="auto" aria-hidden className="absolute inset-0 h-full w-full object-cover">
           <source src={img("hero-mobile.mp4")} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/30" />
