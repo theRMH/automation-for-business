@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  Bot, Building2, Check, Database, Globe, GraduationCap, LayoutDashboard, Layers, Search, Sparkles, Truck, UtensilsCrossed, Workflow, Wrench,
+  Bot, Database, Globe, LayoutDashboard, Layers, Play, Search, Sparkles, Workflow, X,
 } from "lucide-react";
 
-const USECASE_ICONS = [Wrench, Building2, Truck, UtensilsCrossed, GraduationCap];
+
 const BUILD_ICONS = [LayoutDashboard, Globe, Sparkles];
 import { A, BUILD, FAQ, FOOTER_COLS, PROCESS, USECASES } from "./data";
 
@@ -208,7 +208,15 @@ function Visitors() {
 /* -------------------------------------------------------------- usecases */
 function UseCases() {
   const [active, setActive] = useState(0);
+  const [playing, setPlaying] = useState<string | null>(null);
   const refs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    if (!playing) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setPlaying(null); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [playing]);
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -228,8 +236,8 @@ function UseCases() {
       <div className="mx-auto grid max-w-[1520px] gap-12 px-5 md:px-10 lg:grid-cols-[420px_1fr]">
         <div>
           <div className="lg:sticky lg:top-[120px]">
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#9a60fb]">Platforms we have built</p>
-            <h2 className="mt-3 text-4xl font-bold text-[#171717] md:text-5xl">Software for <em className="font-serif text-[#9a60fa]">real operations</em></h2>
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#9a60fb]">Our work</p>
+            <h2 className="mt-3 text-4xl font-bold text-[#171717] md:text-5xl">Real systems, <em className="font-serif text-[#9a60fa]">real results</em></h2>
             <ul className="mt-8 hidden lg:block">
               {USECASES.map((u, i) => (
                 <li key={u.nav} className="border-b border-[#1717171a]">
@@ -247,31 +255,47 @@ function UseCases() {
           {USECASES.map((u, i) => (
             <article key={u.nav} data-i={i} ref={(el) => { refs.current[i] = el; }}
               className="rounded-[25px] border border-white/[.13] bg-[#130c23] bg-gradient-to-b from-[#130c23]/90 to-[#0c0819]/95 p-6 shadow-[0_24px_60px_rgba(0,0,0,.28)] md:p-8">
-              <div className="flex items-center gap-4">
-                <span className="flex size-12 items-center justify-center rounded-full border border-[rgba(179,119,255,.54)] bg-[rgba(74,35,133,.28)] text-[#b794ff]" aria-hidden>
-                  {(() => { const Icon = USECASE_ICONS[i]; return <Icon className="size-6" />; })()}
-                </span>
-                <p className="text-sm font-semibold uppercase tracking-wider text-[#b794ff]">{u.kicker}</p>
-              </div>
-              <h3 className="mt-2 text-2xl font-bold text-white md:text-3xl">{u.title}</h3>
-              <p className="mt-3 text-white/70">{u.text}</p>
-              <div className="mt-6 grid gap-6 md:grid-cols-[220px_1fr]">
-                <div className="rounded-[14px] border border-white/20 bg-[radial-gradient(circle_at_100%_0%,rgba(143,86,255,.22),transparent_60%)] p-4">
-                  <p className="text-xs uppercase tracking-widest text-[#b794ff]">Built for</p>
-                  <p className="mt-2 text-base font-semibold text-white">{u.audience}</p>
+              <p className="text-sm font-semibold uppercase tracking-wider text-[#b794ff]">{u.kicker}</p>
+              <div className="mt-2 grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+                <div>
+                  <h3 className="text-2xl font-bold text-white md:text-3xl">{u.title}</h3>
+                  <p className="mt-2 text-white/70">{u.text}</p>
                 </div>
-                <ul className="grid content-center gap-3 sm:grid-cols-2">
-                  {u.points.map((p) => (
-                    <li key={p} className="flex items-start gap-2 text-sm text-white/70">
-                      <Check className="mt-0.5 size-4 shrink-0 text-[#b794ff]" aria-hidden />{p}
-                    </li>
-                  ))}
-                </ul>
+                <div className="rounded-[14px] border border-[rgba(179,119,255,.54)] bg-[radial-gradient(circle_at_100%_0%,rgba(143,86,255,.3),transparent_60%)] px-6 py-4 md:min-w-[220px]">
+                  <p className="text-4xl font-black text-white md:text-5xl">{u.stat}</p>
+                  <p className="mt-1 text-sm text-[#cab5ff]">{u.statLabel}</p>
+                </div>
+              </div>
+              {"video" in u && u.video && (
+                <button type="button" onClick={() => setPlaying(`${A}/work/${u.video}`)} aria-label={`Play ${u.title} video`}
+                  className="group relative mt-6 block w-full overflow-hidden rounded-[12px] border border-white/15">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`${A}/work/${u.poster}`} alt={`${u.title} video thumbnail`} loading="lazy" className="w-full transition group-hover:scale-[1.02]" />
+                  <span className="absolute inset-0 flex items-center justify-center bg-black/30 transition group-hover:bg-black/20">
+                    <span className="flex size-20 items-center justify-center rounded-full bg-[#a100ff] text-white shadow-[0_0_0_10px_rgba(161,0,255,.3)]">
+                      <Play className="size-8 translate-x-0.5 fill-current" aria-hidden />
+                    </span>
+                  </span>
+                </button>
+              )}
+              <div className={`mt-6 grid gap-4 ${u.images.length > 1 ? "sm:grid-cols-2" : ""}`}>
+                {u.images.map((src) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img key={src} src={`${A}/work/${src}`} alt={`${u.title} screenshot`} loading="lazy" className="w-full rounded-[12px] border border-white/15" />
+                ))}
               </div>
             </article>
           ))}
         </div>
       </div>
+      {playing && (
+        <div role="dialog" aria-modal="true" aria-label="Video" className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4" onClick={() => setPlaying(null)}>
+          <button type="button" aria-label="Close video" onClick={() => setPlaying(null)} className="absolute right-4 top-4 flex size-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20">
+            <X className="size-6" aria-hidden />
+          </button>
+          <video src={playing} controls autoPlay playsInline onClick={(e) => e.stopPropagation()} className="max-h-[88vh] w-full max-w-5xl rounded-xl bg-black" />
+        </div>
+      )}
     </section>
   );
 }
