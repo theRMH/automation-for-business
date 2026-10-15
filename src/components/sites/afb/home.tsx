@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  Bot, Database, Globe, LayoutDashboard, Layers, Play, Search, Sparkles, Workflow, X,
+  Bot, Database, LayoutDashboard, Layers, Play, Search, Smartphone, Sparkles, Workflow, X,
 } from "lucide-react";
 
 
-const BUILD_ICONS = [LayoutDashboard, Globe, Sparkles];
-import { A, BUILD, FAQ, FOOTER_COLS, PROCESS, USECASES } from "./data";
+const BUILD_ICONS = [LayoutDashboard, Smartphone, Sparkles];
+import { A, BUILD, FAQ, PROCESS, USECASES } from "./data";
 
 const WHATSAPP = `https://wa.me/917010069287?text=${encodeURIComponent("Hi Automation For Business, I would like to discuss a project with you. Could we talk?")}`;
 const img = (p: string) => `${A}/${p}`;
@@ -71,13 +71,14 @@ function Hero() {
       <div className="relative mx-auto w-full max-w-[1520px] px-5 pb-[120px] pt-12 md:px-10 md:pb-[150px] md:pt-16">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_minmax(300px,435px)] lg:gap-x-[60px]">
           <h1 className="pr-4 text-[clamp(34px,10.5vw,104px)] md:text-[clamp(44px,7.4vw,104px)] font-black uppercase leading-[0.92] tracking-[-0.04em] text-white">
-            <span className="block">AI Is Your</span>
+            <span className="block">AI</span>
+            <span className="block">Is Your</span>
             <span className="block text-right">Unfair Advantage.</span>
           </h1>
           <div className="flex flex-col items-start">
             <span className="mb-4 h-2 w-[84px] rounded-full bg-[#a100ff]" aria-hidden />
             <p className="mb-4 font-serif text-xl leading-8 text-white/85 md:text-[25px] md:leading-10">
-              We design and build the platforms, websites and AI tools that let growing businesses run with less friction.
+              We design and build the software, platforms and AI tools that let growing businesses run with less friction.
             </p>
             <a href="#services" aria-label="Explore" className="inline-flex size-11 items-center justify-center bg-[#a100ff] transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white hover:translate-x-[3px]">
               <svg width="10" height="12" viewBox="0 0 10 12" fill="none" aria-hidden><path d="M0 11.52 4.81 5.76 0 0h4.75l4.9 5.76-4.9 5.76H0Z" fill="white" /></svg>
@@ -179,7 +180,7 @@ function Visitors() {
               </span>
               <h3 className="font-serif text-[clamp(34px,3.4vw,49px)] font-normal tracking-[-0.035em] text-white">Your customers</h3>
             </div>
-            <p className="mb-6 text-base leading-[1.65] text-[#e6e8f4] sm:text-[18px]">The people you serve. They expect fast answers, simple ordering and honest updates.</p>
+            <p className="mb-6 text-base leading-[1.65] text-[#e6e8f4] sm:text-[18px]">The people you serve. They expect fast answers, simple service and honest updates.</p>
             <hr className="mb-6 border-white/10" />
             {items([["Easy to start", "Book, order or enquire in a few taps."], ["Always informed", "Status updates without having to call."], ["Consistent service", "The same quality every time they come back."]])}
           </article>
@@ -415,35 +416,12 @@ function ContactCta() {
 /* ---------------------------------------------------------------- footer */
 function Footer() {
   return (
-    <footer className="bg-[#040507] pt-12 md:pt-16">
-      <div className="mx-auto max-w-[1520px] px-5 md:px-10">
-        <div className="grid gap-10 lg:grid-cols-[1fr_2fr]">
-          <div>
-            <span className="flex items-center gap-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img("afb-logo-white.png")} alt="" width={268} height={128} loading="lazy" className="h-10 w-auto" />
-              <span className="text-base font-extrabold uppercase leading-[1.05] tracking-tight text-white">Automation<br />For Business</span>
-            </span>
-            <p className="mt-4 max-w-sm text-white/65">Software, web and AI solutions built around how your business works.</p>
-            <ul className="mt-5 flex gap-3">
-              {[["social-linkedin", "LinkedIn"], ["social-instagram", "Instagram"], ["social-facebook", "Facebook"]].map(([f, l]) => (
-                <li key={l}><a aria-label={l} href="#top" className="flex size-11 items-center justify-center rounded-full border border-white/20 hover:border-[#a100ff]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={img(`icons/footer/${f}.svg`)} alt="" className="h-4" /></a></li>
-              ))}
-            </ul>
-          </div>
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-3">
-            {FOOTER_COLS.map((c) => (
-              <div key={c.title}>
-                <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">{c.title}</h2>
-                <ul className="space-y-1 text-sm text-white/65">{c.links.map((l) => <li key={l}><a href="#contact" className="inline-block py-1.5 hover:text-white">{l}</a></li>)}</ul>
-              </div>
-            ))}
-          </div>
-        </div>
-        <p className="mt-14 border-t border-white/10 py-8 text-sm text-white/50">&copy; {new Date().getFullYear()} Automation For Business. All rights reserved.</p>
-      </div>
+    <footer className="bg-[#040507] px-5 py-8 text-center text-sm text-white/60">
+      <p>&copy; {new Date().getFullYear()} Automation For Business. All rights reserved.</p>
+      <p className="mt-1">
+        A unit of{" "}
+        <a href="https://rabbitmarketinghouse.in" target="_blank" rel="noopener noreferrer" className="font-semibold text-white underline-offset-4 hover:underline focus-visible:underline">Rabbit Marketing House</a>
+      </p>
     </footer>
   );
 }

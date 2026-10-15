@@ -26,8 +26,8 @@ const btSerif = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Automation For Business | Custom Software, Websites and AI",
-  description: "Automation For Business builds operations platforms, websites and AI tools for growing businesses.",
+  title: "Automation For Business | Custom Software, Automation and AI",
+  description: "Automation For Business builds custom software, operations platforms and AI automation for growing businesses.",
 };
 
 export default function RootLayout({

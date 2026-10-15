@@ -60,7 +60,7 @@ export const USECASES = [
     nav: "Hotel Chatbot",
     kicker: "Hospitality",
     title: "Hotel AI Chatbot",
-    text: "Answers guest questions and takes booking enquiries on the hotel website, any time of day.",
+    text: "Answers guest questions and takes booking enquiries for the hotel, any time of day.",
     stat: "24/7",
     statLabel: "instant replies to guest enquiries",
     images: [] as string[],
@@ -78,20 +78,14 @@ export const PROCESS = [
 
 export const BUILD = [
   { title: "Business Platforms", items: ["Operations and management software", "Multi-user portals and dashboards", "Systems that replace spreadsheets"] },
-  { title: "Websites & Stores", items: ["Fast, clear business websites", "Online ordering and ecommerce", "Booking and enquiry flows"] },
+  { title: "Apps & Portals", items: ["Mobile apps for crews and customers", "Admin panels and dashboards", "Partner and client portals"] },
   { title: "AI & Automation", items: ["Assistants that handle routine requests", "Automated hand-offs between tools", "Smart recommendations inside your software"] },
 ];
 
 export const FAQ = [
-  { q: "What kind of software do you build?", a: "Operations platforms for service, property, delivery, food and education businesses, plus the websites, ordering flows and automation around them." },
+  { q: "What kind of software do you build?", a: "Operations platforms for service, property, delivery, food and education businesses, plus the AI and automation around them." },
   { q: "Can you build something for my industry?", a: "Most likely. If your work involves jobs, people, schedules or orders that are tracked by hand today, we can usually turn it into a system." },
   { q: "Do I need to replace the tools I already use?", a: "No. We can connect to the tools you rely on and only replace what is holding you back." },
   { q: "How long does a project take?", a: "It depends on scope. We start with a focused first release so you get something useful quickly, then add to it." },
   { q: "Will you support the system after launch?", a: "Yes. We stay on to fix, improve and extend the software as your business grows." },
-];
-
-export const FOOTER_COLS = [
-  { title: "What we build", links: ["Business platforms", "Websites and stores", "AI and automation"] },
-  { title: "Our platforms", links: ["Property Consultant", "Fenster Field Ops", "Mitrin Invoice", "Shero Delivery", "Courier Management", "AI Voice Calling", "Hotel Chatbot"] },
-  { title: "Work with us", links: ["Start a project", "Talk on WhatsApp"] },
 ];
